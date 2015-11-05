@@ -25,6 +25,8 @@ function Flower(name, color, petals, smellsPretty, stemLength, url){
         return("My " + this.color + " " + this.name + " is much prettier than your " +
           otherFlower.color + " " + otherFlower.name + " :P");
     };
+
+    //uber challenge
     this.render = function() {
         $('body').append("<p>My pretty " + this.stemLength + "-stemmed " + this.name + " is " + this.color +
           " and has " + this.petals + " pristine petals.</p><img src='"+this.url+"'> ");
@@ -48,6 +50,7 @@ var rose = new Flower("rose", "red", 32, true, "long", "rose.jpg");
 var lily = new Flower("lily", "yellow", 6, true, "medium", "lily.jpg");
 var daisy = new Flower("daisy", "white", 10, false, "short", "daisy.jpg"); 
 
+// part of stretch challenge
 var vase = {
     flowers: [],
     placeFlower: function(flower) {
@@ -59,14 +62,7 @@ vase.placeFlower(rose);
 vase.placeFlower(lily);
 vase.placeFlower(daisy);
 
-console.log('chrysanthemum:', chrysanthemum);
-console.log('rose:', rose);
-console.log('lily:', lily);
-console.log('daisy:', daisy);
-
-console.log("Comparing daisy and rose: ", daisy.compare(rose));
-console.log("Breeding daisy and rose: ", daisy.crossPollinate(rose));
-
+//uber challenge
 $(document).ready(function() {
     vase.flowers.forEach(function(flower) {
         flower.render();
