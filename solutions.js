@@ -1,9 +1,10 @@
-function Flower(name, color, petals, smellsPretty, stemLength){
+function Flower(name, color, petals, smellsPretty, stemLength, url){
     this.name = name;
     this.color = color;
     this.petals = petals;
     this.smellsPretty= smellsPretty;
     this.stemLength = stemLength;
+    this.url = url;
     this.sniff = function(){
         console.log("Sniff Sniff Sniff!");
     };
@@ -26,7 +27,7 @@ function Flower(name, color, petals, smellsPretty, stemLength){
     };
     this.render = function() {
         $('body').append("<p>My pretty " + this.stemLength + "-stemmed " + this.name + " is " + this.color +
-          " and has " + this.petals + " pristine petals.</p>");
+          " and has " + this.petals + " pristine petals.</p><img src='"+this.url+"'> ");
     };
 
     //cross-pollination solutions
@@ -41,14 +42,14 @@ function Flower(name, color, petals, smellsPretty, stemLength){
     };
 }
 
-var chrysanthenum = new Flower("chrysanthenum", "pink", 65, false, "short");
-var rose = new Flower("rose", "red", 32, true, "long");
-var lily = new Flower("lily", "yellow", 6, true, "medium");
-var daisy = new Flower("daisy", "white", 10, false, "short"); 
+var chrysanthemum = new Flower("chrysanthemum", "pink", 65, false, "short", "mum.jpg");
+var rose = new Flower("rose", "red", 32, true, "long", "rose.jpg");
+var lily = new Flower("lily", "yellow", 6, true, "medium", "lily.jpg");
+var daisy = new Flower("daisy", "white", 10, false, "short", "daisy.jpg"); 
 
-var vase = [chrysanthenum, rose, lily, daisy];
+var vase = [chrysanthemum, rose, lily, daisy];
 
-console.log('chrysanthenum:', chrysanthenum);
+console.log('chrysanthemum:', chrysanthemum);
 console.log('rose:', rose);
 console.log('lily:', lily);
 console.log('daisy:', daisy);
