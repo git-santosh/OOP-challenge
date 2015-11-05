@@ -37,7 +37,8 @@ function Flower(name, color, petals, smellsPretty, stemLength, url){
             this.color + "-" + otherFlower.color,
             (this.petals + otherFlower.petals) / 2,
             this.smellsPretty === true && otherFlower.smellsPretty === true,
-            this.stemLength + "-"+ otherFlower.stemLength
+            this.stemLength + "-"+ otherFlower.stemLength,
+            "mutant.jpg" 
         );
     };
 }
@@ -47,7 +48,16 @@ var rose = new Flower("rose", "red", 32, true, "long", "rose.jpg");
 var lily = new Flower("lily", "yellow", 6, true, "medium", "lily.jpg");
 var daisy = new Flower("daisy", "white", 10, false, "short", "daisy.jpg"); 
 
-var vase = [chrysanthemum, rose, lily, daisy];
+var vase = {
+    flowers: [],
+    placeFlower: function(flower) {
+        vase.flowers.push(flower);
+    }
+};
+vase.placeFlower(chrysanthemum);
+vase.placeFlower(rose);
+vase.placeFlower(lily);
+vase.placeFlower(daisy);
 
 console.log('chrysanthemum:', chrysanthemum);
 console.log('rose:', rose);
@@ -58,7 +68,7 @@ console.log("Comparing daisy and rose: ", daisy.compare(rose));
 console.log("Breeding daisy and rose: ", daisy.crossPollinate(rose));
 
 $(document).ready(function() {
-    vase.forEach(function(flower) {
+    vase.flowers.forEach(function(flower) {
         flower.render();
     });
     $('body').append('<p>Comparing daisy and rose: </p>');
